@@ -89,12 +89,12 @@ var upperCasedCharacters = [
 ];
 
 var passwordOptions = {
-  passwordLength: 0,
   lowercase: false,
   uppercase: false,
   numbers: false,
   specials: false,
-  arrays: [1, 2, 3, ]
+  arraySelector: [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters],
+  passwordLength: 0
 }
 
 // Function to prompt user for password options
@@ -131,6 +131,12 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
+  for (var i = 0; i < 4; i++) {
+    if (!passwordOptions[i]) {
+      passwordOptions.arraySelector.splice(i, 1);
+    }
+  }
+  console.log(passwordOptions.arraySelector);
 }
 
 // Get references to the #generate element
