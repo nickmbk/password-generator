@@ -88,10 +88,6 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-function chooseLowerCase() {
-  prompt("Do you want lower case letters in your password?");
-}
-
 function getPasswordLength() {
   var passwordLengthPrompt = prompt("How many characters do you want your password to be? Choose between 10 and 64: ");
   if (passwordLengthPrompt >=10 && passwordLength <=64) {
@@ -114,7 +110,7 @@ function getPasswordLength() {
 // Function to prompt user for password options
 function getPasswordOptions() {
   var passwordLength = getPasswordLength();
-  var lowerCaseLetters = chooseLowerCase();
+  var lowerCaseLetters = confirm("Do you want lower case letters in your password?");
 }
 
 // Function for getting a random element from an array
