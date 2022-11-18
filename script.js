@@ -96,7 +96,8 @@ var passwordOptions = {
   specials: false
 }
 
-function getPasswordLength() {
+// Function to prompt user for password options
+function getPasswordOptions() {
   passwordOptions.passwordLength = prompt("How many characters do you want your password to be? Choose between 10 and 64: ");
   if (passwordOptions.passwordLength >=10 && passwordOptions.passwordLength <=64) {
     passwordOptions.lowercase = confirm("Do you want lower case letters in your password?");
@@ -125,11 +126,6 @@ function getPasswordLength() {
   {
     alert("Invalid entry, please enter a number between 10 and 64");
   }
-}
-
-// Function to prompt user for password options
-function getPasswordOptions() {
-  passwordOptions.passwordLength = getPasswordLength();
 }
 
 // Function for getting a random element from an array
