@@ -88,9 +88,33 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+function chooseLowerCase() {
+  prompt("Do you want lower case letters in your password?");
+}
+
+function getPasswordLength() {
+  var passwordLengthPrompt = prompt("How many characters do you want your password to be? Choose between 10 and 64: ");
+  if (passwordLengthPrompt >=10 && passwordLength <=64) {
+    chooseLowerCase();
+  }
+  else
+  if (passwordLengthPrompt < 10) {
+    alert("Password must be at least 10 characters long");
+  } 
+  else
+  if (passwordLengthPrompt > 64) {
+    alert("Password must be no more than 64 characters long");
+  }
+  else
+  {
+    alert("Invalid entry, please enter a number between 10 and 64");
+  }
+}
+
 // Function to prompt user for password options
 function getPasswordOptions() {
-
+  var passwordLength = getPasswordLength();
+  var lowerCaseLetters = chooseLowerCase();
 }
 
 // Function for getting a random element from an array
@@ -100,7 +124,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
+  getPasswordOptions();
 }
 
 // Get references to the #generate element
