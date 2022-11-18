@@ -93,7 +93,8 @@ var passwordOptions = {
   lowercase: false,
   uppercase: false,
   numbers: false,
-  specials: false
+  specials: false,
+  arrays: [1, 2, 3, ]
 }
 
 // Function to prompt user for password options
@@ -104,7 +105,7 @@ function getPasswordOptions() {
     passwordOptions.uppercase = confirm("Do you want upper case letters in your password?");
     passwordOptions.numbers = confirm("Do you want numbers in your password?");
     passwordOptions.specials = confirm("Do you want special characters in your password?");
-    if (passwordOptions.lowercase === false && passwordOptions.uppercase === false && passwordOptions.numbers === false && passwordOptions.specials === false) {
+    if (!passwordOptions.lowercase && !passwordOptions.uppercase && !passwordOptions.numbers && !passwordOptions.specials) {
       alert("No options were selected");
     }
   }
@@ -124,7 +125,7 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  Math.floor(Math.random() * arr.length);
+  return Math.floor(Math.random() * arr.length);
 }
 
 // Function to generate password with user input
