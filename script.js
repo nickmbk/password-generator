@@ -108,6 +108,7 @@ function getPasswordOptions() {
     if (!passwordOptions.lowercase && !passwordOptions.uppercase && !passwordOptions.numbers && !passwordOptions.specials) {
       alert("No options were selected");
     }
+
   }
   else
   if (passwordLengthPrompt < 10) {
@@ -121,22 +122,37 @@ function getPasswordOptions() {
   {
     alert("Invalid entry, please enter a number between 10 and 64");
   }
+
+  if (!passwordOptions.lowercase) {
+      passwordOptions.arraySelector.splice(0, 1);
+  }
+  if (!passwordOptions.uppercase) {
+      passwordOptions.arraySelector.splice(1, 1);
+  }
+  if (!passwordOptions.numbers) {
+    passwordOptions.arraySelector.splice(2, 1);
+  }
+  if (!passwordOptions.specials) {
+    passwordOptions.arraySelector.splice(3, 1);
+  }
+  console.log(passwordOptions.arraySelector);
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  return Math.floor(Math.random() * arr.length);
+  return arr[Math.floor(Math.random() * arr.length)];
 }
 
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-  for (var i = 0; i < 4; i++) {
-    if (!passwordOptions[i]) {
-      passwordOptions.arraySelector.splice(i, 1);
-    }
+
+  var buildPassword = "";
+  for (var i = 0; i < passwordOptions.passwordLength; i++) {
+    var chooseArray = getRandom(passwordOptions.arraySelector);
+    buildPassword += getRandom(chooseArray);
   }
-  console.log(passwordOptions.arraySelector);
+  return buildPassword;
 }
 
 // Get references to the #generate element
