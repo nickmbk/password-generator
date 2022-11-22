@@ -109,6 +109,19 @@ function getPasswordOptions() {
     if (!passwordOptions.lowercase && !passwordOptions.uppercase && !passwordOptions.numbers && !passwordOptions.specials) {
       alert("No options were selected");
     }
+
+    if (passwordOptions.lowercase) {
+      passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(lowerCasedCharacters);
+    }
+    if (passwordOptions.uppercase) {
+      passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(upperCasedCharacters);
+    }
+    if (passwordOptions.numbers) {
+      passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(numericCharacters);
+    }
+    if (passwordOptions.specials) {
+      passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(specialCharacters);
+    }
   }
   else
   if (passwordOptions.passwordLength < 10) {
@@ -121,19 +134,6 @@ function getPasswordOptions() {
   else
   {
     alert("Invalid entry, please enter a number between 10 and 64");
-  }
-
-  if (passwordOptions.lowercase) {
-    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(lowerCasedCharacters);
-  }
-  if (passwordOptions.uppercase) {
-    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(upperCasedCharacters);
-  }
-  if (passwordOptions.numbers) {
-    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(numericCharacters);
-  }
-  if (passwordOptions.specials) {
-    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(specialCharacters);
   }
 }
 
