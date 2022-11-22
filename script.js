@@ -111,11 +111,11 @@ function getPasswordOptions() {
     }
   }
   else
-  if (passwordLengthPrompt < 10) {
+  if (passwordOptions.passwordLength < 10) {
     alert("Password must be at least 10 characters long");
   } 
   else
-  if (passwordLengthPrompt > 64) {
+  if (passwordOptions.passwordLength   > 64) {
     alert("Password must be no more than 64 characters long");
   }
   else
@@ -135,7 +135,6 @@ function getPasswordOptions() {
   if (passwordOptions.specials) {
     passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(specialCharacters);
   }
-  console.log(passwordOptions.chosenCharacters);
 }
 
 // Function for getting a random element from an array
