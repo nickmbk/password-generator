@@ -124,16 +124,16 @@ function getPasswordOptions() {
   }
 
   if (passwordOptions.lowercase) {
-    passwordOptions.chosenCharacters.concat(lowerCasedCharacters);
+    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(lowerCasedCharacters);
   }
   if (passwordOptions.uppercase) {
-    passwordOptions.chosenCharacters.concat(upperCasedCharacters);
+    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(upperCasedCharacters);
   }
   if (passwordOptions.numbers) {
-    passwordOptions.chosenCharacters.concat(numericCharacters);
+    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(numericCharacters);
   }
   if (passwordOptions.specials) {
-    passwordOptions.chosenCharacters.concat(specialCharacters);
+    passwordOptions.chosenCharacters = passwordOptions.chosenCharacters.concat(specialCharacters);
   }
   console.log(passwordOptions.chosenCharacters);
 }
