@@ -93,12 +93,13 @@ var passwordOptions = {
   uppercase: false,
   numbers: false,
   specials: false,
-  arraySelector: [lowerCasedCharacters, upperCasedCharacters, numericCharacters, specialCharacters],
+  chosenCharacters: [],
   passwordLength: 0
 }
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  passwordOptions.chosenCharacters = [];
   passwordOptions.passwordLength = prompt("How many characters do you want your password to be? Choose between 10 and 64: ");
   if (passwordOptions.passwordLength >=10 && passwordOptions.passwordLength <=64) {
     passwordOptions.lowercase = confirm("Do you want lower case letters in your password?");
@@ -108,7 +109,6 @@ function getPasswordOptions() {
     if (!passwordOptions.lowercase && !passwordOptions.uppercase && !passwordOptions.numbers && !passwordOptions.specials) {
       alert("No options were selected");
     }
-
   }
   else
   if (passwordLengthPrompt < 10) {
@@ -123,19 +123,19 @@ function getPasswordOptions() {
     alert("Invalid entry, please enter a number between 10 and 64");
   }
 
-  if (!passwordOptions.lowercase) {
-      passwordOptions.arraySelector.splice(0, 1);
+  if (passwordOptions.lowercase) {
+    passwordOptions.chosenCharacters.concat(lowerCasedCharacters);
   }
-  if (!passwordOptions.uppercase) {
-      passwordOptions.arraySelector.splice(1, 1);
+  if (passwordOptions.uppercase) {
+    passwordOptions.chosenCharacters.concat(upperCasedCharacters);
   }
-  if (!passwordOptions.numbers) {
-    passwordOptions.arraySelector.splice(2, 1);
+  if (passwordOptions.numbers) {
+    passwordOptions.chosenCharacters.concat(numericCharacters);
   }
-  if (!passwordOptions.specials) {
-    passwordOptions.arraySelector.splice(3, 1);
+  if (passwordOptions.specials) {
+    passwordOptions.chosenCharacters.concat(specialCharacters);
   }
-  console.log(passwordOptions.arraySelector);
+  console.log(passwordOptions.chosenCharacters);
 }
 
 // Function for getting a random element from an array
@@ -149,8 +149,7 @@ function generatePassword() {
 
   var buildPassword = "";
   for (var i = 0; i < passwordOptions.passwordLength; i++) {
-    var chooseArray = getRandom(passwordOptions.arraySelector);
-    buildPassword += getRandom(chooseArray);
+    buildPassword += getRandom(passwordOptions.chosenCharacters);
   }
   return buildPassword;
 }
