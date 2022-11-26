@@ -149,7 +149,7 @@ function getPasswordOptions() {
   } 
   else
   // if the user has entered a number over 64 alert them
-  if (passwordOptions.passwordLength   > 64) {
+  if (passwordOptions.passwordLength > 64) {
     alert("Password must be no more than 64 characters long");
   }
   // if the user has entered anything that is not a number, alert them
